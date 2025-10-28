@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/pages/top_places.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -27,19 +28,29 @@ class _HomeState extends State<Home> {
                   padding: const EdgeInsets.only(top: 40.0, right: 20.0),
                   child: Row(
                     children: [
-                      Material(
-                        elevation: 3.0,
-                        borderRadius: BorderRadius.circular(10),
-                        child: Container(
-                          padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
+                      GestureDetector(
+                        onTap: () => {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TopPlaces(),
+                            ),
                           ),
-                          child: Image.asset(
-                            "images/pin.png",
-                            height: 30,  // Reduced size
-                            width: 30,   // Reduced size
+                        },
+                        child: Material(
+                          elevation: 3.0,
+                          borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Image.asset(
+                              "images/pin.png",
+                              height: 30, // Reduced size
+                              width: 30, // Reduced size
+                            ),
                           ),
                         ),
                       ),
@@ -105,13 +116,17 @@ class _HomeState extends State<Home> {
                   ),
                   child: Material(
                     elevation: 7.0,
-                    borderRadius: BorderRadius.circular(15.0), // Added border radius to Material
+                    borderRadius: BorderRadius.circular(
+                      15.0,
+                    ), // Added border radius to Material
                     child: Container(
                       padding: EdgeInsets.only(left: 20.0),
                       decoration: BoxDecoration(
                         color: const Color.fromARGB(108, 255, 255, 255),
                         border: Border.all(width: 1.5),
-                        borderRadius: BorderRadius.circular(15.0), // Increased border radius
+                        borderRadius: BorderRadius.circular(
+                          15.0,
+                        ), // Increased border radius
                       ),
                       child: TextField(
                         decoration: InputDecoration(

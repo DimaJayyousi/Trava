@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'Pages/home.dart'; 
 import 'pages/top_places.dart';
+import 'pages/login.dart';
+import 'pages/signup.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: TopPlaces()// >>>.... this where to direct see the page 
+      home:Login() // >>>.... this where to direct see the page 
     );
   }
 }

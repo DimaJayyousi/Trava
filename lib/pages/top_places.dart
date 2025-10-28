@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/pages/home.dart';
 
 class TopPlaces extends StatefulWidget {
   const TopPlaces({super.key});
@@ -10,16 +11,14 @@ class TopPlaces extends StatefulWidget {
 class _TopPlaces extends State<TopPlaces> {
   // List of places using the same image names from your code
   final List<Map<String, String>> places = [
-     {'image': "images/Cappadocia_Turkey.jpeg", 'name': "Turkey"},
+    {'image': "images/Cappadocia_Turkey.jpeg", 'name': "Turkey"},
     {'image': "images/Venice_Italy.jpeg", 'name': "Italy"},
     {'image': "images/London.jpeg", 'name': "London"},
     {'image': "images/Colosseum_Rome.jpeg", 'name': "Rome"},
-    {'image': "images/q.jpeg", 'name': "Paris"},
-    {'image': "images/u.jpeg", 'name': "Paris"},
-    {'image': "images/r.jpeg", 'name': "Paris"},
-    {'image': "images/t.jpeg", 'name': "Paris"},
-    {'image': "images/u.jpeg", 'name': "Paris"},
-    {'image': "images/w.jpeg", 'name': "Paris"},
+    {'image': "images/u.jpeg", 'name': "France"},
+    {'image': "images/r.jpeg", 'name': "Italy"},
+    {'image': "images/t.jpeg", 'name': "Spain"},
+    {'image': "images/w.jpeg", 'name': "Egypt"},
   ];
 
   @override
@@ -29,32 +28,42 @@ class _TopPlaces extends State<TopPlaces> {
         margin: const EdgeInsets.only(top: 50.0),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Material(
-                    elevation: 3.0,
-                    borderRadius: BorderRadius.circular(30),
-                    child: Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(color: Colors.white54),
-                      child: Icon(
-                        Icons.arrow_back_ios_new_outlined,
-                        color: Colors.deepPurple,
+            Material(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () => {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Home()),
+                        ),
+                      },
+                      child: Material(
+                        elevation: 3.0,
+                        borderRadius: BorderRadius.circular(30),
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(color: Colors.white54),
+                          child: Icon(
+                            Icons.arrow_back_ios_new_outlined,
+                            color: Colors.deepPurple,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: MediaQuery.of(context).size.width / 4),
-                  Text(
-                    "Top Places ",
-                    style: TextStyle(
-                      color: const Color(0xFF28126A),
-                      fontSize: 30.0,
-                      fontWeight: FontWeight.bold,
+                    SizedBox(width: MediaQuery.of(context).size.width / 4),
+                    Text(
+                      "Top Places ",
+                      style: TextStyle(
+                        color: const Color(0xFF28126A),
+                        fontSize: 30.0,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 30.0),
@@ -80,12 +89,13 @@ class _TopPlaces extends State<TopPlaces> {
                   ),
                   width: MediaQuery.of(context).size.width,
                   child: GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, // 2 items per row
-                      crossAxisSpacing: 15, // Space between columns
-                      mainAxisSpacing: 20, // Space between rows
-                      childAspectRatio: 0.8, // Width/Height ratio
-                    ),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2, // 2 items per row
+                          crossAxisSpacing: 15, // Space between columns
+                          mainAxisSpacing: 20, // Space between rows
+                          childAspectRatio: 0.8, // Width/Height ratio
+                        ),
                     itemCount: places.length,
                     itemBuilder: (context, index) {
                       return _buildPlaceCard(
