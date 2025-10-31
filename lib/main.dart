@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Signup(), // >>>.... this where to direct see the page
+      home: Login(), // >>>.... this where to direct see the page
     );
   }
 }
