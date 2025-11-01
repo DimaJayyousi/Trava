@@ -13,3 +13,11 @@ Future<QuerySnapshot> getUserEmail(String email)async{
   return await FirebaseFirestore.instance.collection("users").where("Email",isEqualTo: email).get();
 }
 }
+
+
+  Future addPost(Map<String, dynamic> userInfoMap, String id) async {
+    return await FirebaseFirestore.instance
+        .collection("Post")
+        .doc(id)
+        .set(userInfoMap);
+  }
