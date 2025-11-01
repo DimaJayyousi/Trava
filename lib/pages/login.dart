@@ -33,11 +33,10 @@ class _LoginState extends State<Login> {
       await SharedPreferencesHelper().saveUserImage(myimage);
       await SharedPreferencesHelper().saveUserDisplayName(myname);
       await SharedPreferencesHelper().saveUserId(myid);
-         Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const Home()),
-        );
-        
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const Home()),
+      );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -107,7 +106,6 @@ class _LoginState extends State<Login> {
             ),
             const SizedBox(height: 10.0),
             Container(
-    
               margin: const EdgeInsets.only(left: 20.0, right: 20.0),
               decoration: BoxDecoration(
                 border: Border.all(
@@ -116,6 +114,8 @@ class _LoginState extends State<Login> {
                 borderRadius: BorderRadius.circular(30),
               ),
               child: TextField(
+                cursorColor: Colors.black,
+
                 controller: mailController,
                 onChanged: (value) {
                   setState(() {
@@ -150,6 +150,8 @@ class _LoginState extends State<Login> {
                 borderRadius: BorderRadius.circular(30),
               ),
               child: TextField(
+                cursorColor: Colors.black,
+
                 controller: passwordController,
                 obscureText: true,
                 onChanged: (value) {
@@ -182,15 +184,15 @@ class _LoginState extends State<Login> {
             ),
             const SizedBox(height: 15.0),
             GestureDetector(
-              onTap:(){
- if (mailController.text !="" && passwordController.text!=""){
-  setState(() {
-    
-    email=mailController.text;
-    password=passwordController.text;
-  });
-  userLogin();
- }
+              onTap: () {
+                if (mailController.text != "" &&
+                    passwordController.text != "") {
+                  setState(() {
+                    email = mailController.text;
+                    password = passwordController.text;
+                  });
+                  userLogin();
+                }
               },
               child: Container(
                 height: 60,

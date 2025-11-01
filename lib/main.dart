@@ -4,6 +4,7 @@ import 'Pages/home.dart';
 import 'pages/top_places.dart';
 import 'pages/login.dart';
 import 'pages/signup.dart';
+import 'pages/add_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Login(), // >>>.... this where to direct see the page
+      home: AddPage(), // >>>.... this where to direct see the page
     );
   }
 }

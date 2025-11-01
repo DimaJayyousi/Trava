@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/pages/add_page.dart';
 import 'package:travel_app/pages/top_places.dart';
 
 class Home extends StatefulWidget {
@@ -55,19 +56,29 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                       Spacer(),
-                      Material(
-                        elevation: 3.0,
-                        borderRadius: BorderRadius.circular(10),
-                        child: Container(
-                          padding: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
+                      GestureDetector(
+                        onTap: () => {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AddPage(),
+                            ),
                           ),
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.deepPurple,
-                            size: 30.0,
+                        },
+                        child: Material(
+                          elevation: 3.0,
+                          borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.deepPurple,
+                              size: 30.0,
+                            ),
                           ),
                         ),
                       ),
@@ -260,5 +271,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-// 41:39
