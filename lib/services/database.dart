@@ -9,11 +9,12 @@ class DatabaseMethods {
         .set(userInfoMap);
   }
 
-Future<QuerySnapshot> getUserEmail(String email)async{
-  return await FirebaseFirestore.instance.collection("users").where("Email",isEqualTo: email).get();
-}
-}
-
+  Future<QuerySnapshot> getUserEmail(String email) async {
+    return await FirebaseFirestore.instance
+        .collection("users")
+        .where("Email", isEqualTo: email)
+        .get();
+  }
 
   Future addPost(Map<String, dynamic> userInfoMap, String id) async {
     return await FirebaseFirestore.instance
@@ -21,3 +22,8 @@ Future<QuerySnapshot> getUserEmail(String email)async{
         .doc(id)
         .set(userInfoMap);
   }
+
+  Stream<QuerySnapshot> getposts() {
+    return FirebaseFirestore.instance.collection("posts").snapshots();
+  }
+}
