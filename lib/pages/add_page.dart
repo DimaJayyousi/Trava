@@ -263,6 +263,7 @@ class _AddPageState extends State<AddPage> {
                                 "postImage": postImageToUse,
                                 "createdAt": FieldValue.serverTimestamp(),
                                 "hasCustomImage": selectedImage != null, // Flag to indicate custom image
+                                "Like": [],
                               };
                               
                               try {

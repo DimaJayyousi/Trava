@@ -26,4 +26,20 @@ class DatabaseMethods {
   Stream<QuerySnapshot> getposts() {
     return FirebaseFirestore.instance.collection("posts").snapshots();
   }
+
+  Future addLike(String id , String userid)async{
+    return await FirebaseFirestore.instance.collection("posts").doc(id).update({'Like': FieldValue.arrayUnion([userid])});
+  }
+
+ static Future addComment(Map<String, dynamic> userInfoMap, String id) async {
+    return await FirebaseFirestore.instance
+        .collection("posts")
+        .doc(id).collection("comment")
+        .add(userInfoMap);
+  }
+
+    Future<Stream<QuerySnapshot>> getcomments(String id) async{
+    return FirebaseFirestore.instance.collection("posts").doc(id).collection("comment").snapshots();
+  }
+
 }

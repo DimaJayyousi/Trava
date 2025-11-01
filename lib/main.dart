@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:travel_app/pages/comment.dart';
 import 'Pages/home.dart';
 import 'pages/top_places.dart';
 import 'pages/login.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: AddPage(), // >>>.... this where to direct see the page
+      home: Home(), // >>>.... this where to direct see the page
     );
   }
 }
